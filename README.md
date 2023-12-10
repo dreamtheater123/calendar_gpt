@@ -14,6 +14,8 @@ For those who frequently use Google Calendar, they know that adding calendar eve
 
 Finally, enter `http://<your-server-ip-address>:<port-number>` in your web browser, replacing the URL with the IP address and port number of your server, to access the application's web page. The IP address and port information are usually displayed when running `app.py`. From there, you can simply enter the event description you want AI to help add in the input box.
 
+![Example Image](example.png)
+
 ## Note
 1. The program will redirect to a web page and prompt you to log in to your corresponding Google account on the first run. This operation only occurs once.
 2. This web page is compatible with both PC and mobile devices.
