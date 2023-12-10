@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send Message</title>
+</head>
+<body>
+
+<label for="message">Message:</label>
+<input type="text" id="message" name="message">
+<button onclick="sendMessage()">Send</button>
+
+<script>
+    function sendMessage() {
+        const message = document.getElementById('message').value;
+        fetch('http://104.248.162.214:5000/message', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: 'message=' + encodeURIComponent(message)
+        })
+        .then(response => response.text())
+        .then(data => console.log('Server Response:', data))
+        .catch(error => console.error('Error:', error));
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+{
+    "summary": "\u516c\u53f8\u5f00\u4f1a",
+    "start": {
+        "dateTime": "2023-12-11T10:00:00",
+        "timeZone": "Europe/London"
+    },
+    "end": {
+        "dateTime": "2023-12-11T15:00:00",
+        "timeZone": "Europe/London"
+    },
+    "attendees": [
+        {
+            "email": "cuiwenqian@gmail.com"
+        },
+        {
+            "email": "kerry001.hi@gmail.com"
+        }
+    ],
+    "reminders": {
+        "useDefault": false,
+        "overrides": [
+            {
+                "method": "email",
+                "minutes": 1440
+            },
+            {
+                "method": "popup",
+                "minutes": 10
+            }
+        ]
+    }
+}

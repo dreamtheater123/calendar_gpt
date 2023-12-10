@@ -1,0 +1,22 @@
+{
+    "summary": "Created by all-mighty Aboraski!!!",
+    "start": {
+        "dateTime": "2023-12-10T09:00:00",
+        "timeZone": "Europe/London"
+    },
+    "end": {
+        "dateTime": "2023-12-10T17:00:00",
+        "timeZone": "Europe/London"
+    },
+    "attendees": [
+        {"email": "cuiwenqian@gmail.com"},
+        {"email": "kerry001.hi@gmail.com"}
+    ],
+    "reminders": {
+        "useDefault": false,
+        "overrides": [
+            {"method": "email", "minutes": 1440},
+            {"method": "popup", "minutes": 10}
+        ]
+    }
+}
