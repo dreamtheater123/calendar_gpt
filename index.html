@@ -4,16 +4,93 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Send Message</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 400px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                width: 100%;
+                border-radius: 0;
+                box-shadow: none;
+            }
+        }
+
+        .response {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #e7f3fe;
+            border-left: 6px solid #2196F3;
+            color: #333;
+            border-radius: 4px;
+            display: none; /* Initially hidden */
+        }
+
+    </style>
 </head>
 <body>
 
-<label for="message">Message:</label>
-<input type="text" id="message" name="message">
-<button onclick="sendMessage()">Send</button>
-
+<div class="container">
+    <label for="message">Message:</label>
+    <input type="text" id="message" name="message">
+    <button onclick="sendMessage()">Send</button>
+    <div id="status" class="response"></div>
+</div>
+    
 <script>
     function sendMessage() {
-        const message = document.getElementById('message').value;
+        const messageInput = document.getElementById('message');
+        const message = messageInput.value;
+        const statusDiv = document.getElementById('status');
+
+        // Display "Submitted" status immediately after clicking the send button
+        statusDiv.innerText = 'Submitted...';
+        statusDiv.style.display = 'block';
+
         fetch('http://104.248.162.214:5000/message', {
             method: 'POST',
             headers: {
@@ -22,10 +99,17 @@
             body: 'message=' + encodeURIComponent(message)
         })
         .then(response => response.text())
-        .then(data => console.log('Server Response:', data))
-        .catch(error => console.error('Error:', error));
+        .then(data => {
+            // Update the status with the server's response
+            statusDiv.innerText = data;
+            messageInput.value = ''; // Clear the input
+        })
+        .catch(error => {
+            // Show error message
+            statusDiv.innerText = 'Error: ' + error;
+        });
     }
 </script>
-
+    
 </body>
 </html>

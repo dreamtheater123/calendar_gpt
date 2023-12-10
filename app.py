@@ -2,7 +2,7 @@ from flask import Flask, request, send_from_directory
 from calendar_main import add_event
 from prompt_gpt import parse_input
 
-openaiKey = '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'
+openaiKey = 'your-openai-api-key'
 
 app = Flask(__name__, static_url_path='')
 
