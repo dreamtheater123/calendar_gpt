@@ -56,7 +56,7 @@ def add_event():
 
     if not events:
       print("No upcoming events found.")
-      return
+
 
     # Prints the start and name of the next 10 events
     for event in events:
@@ -64,7 +64,7 @@ def add_event():
       print(start, event["summary"])
     
     # adding event
-    print('\nNow I am trying to add and event...')
+    print('\nNow I am trying to add an event...')
     # Refer to the Python quickstart on how to setup the environment:
     # https://developers.google.com/calendar/quickstart/python
     # Change the scope to 'https://www.googleapis.com/auth/calendar' and delete any
